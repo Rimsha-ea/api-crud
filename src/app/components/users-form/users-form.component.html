@@ -1,0 +1,67 @@
+<form  (ngSubmit)="onSubmit()" [formGroup]="userForm">
+    <div>{{formState}} User</div>
+    <!-- <div>
+        <label for="">RollNo</label>
+        <input type="number" name="rollno" formControlName="rollNo" #rollno />
+    </div> -->
+    <div>
+        <label for="">FirstName</label>
+        <input type="text" name="firstname" formControlName="firstName" #firstname>
+    </div>
+    <div>
+        <label for="">LastName</label>
+        <input type="text" name="lastname"formControlName="lastName" #lastname>
+    </div>
+    <div>
+        <input type='checkbox' name="active" formControlName="active"#active>
+        <label for="">Active</label>
+    </div>
+    <div>
+        <label for="">Email</label>
+        <input type="text" name="email" formControlName="email" #email>
+    </div>
+    <div>
+        <label for="">Age</label>
+        <input type="number" name="age" formControlName="age"#age>
+    </div>
+    <button *ngIf="formState === 'Add'">Submit</button>
+    <button *ngIf="formState === 'Edit'" type="button" [disabled]="disable" (click)="onUpdate()">Update</button>
+    <button type="button" [disabled]="disable" (click)="onCancel()">Cancel</button>
+</form>
+
+
+<div *ngFor="let num of usersList">{{num | json}}</div>
+
+<section>
+    <table class="border border-success border-1 col-12 ">
+        <thead>
+            <tr class="  col-6 bg-success p-2  bg-opacity-25">
+                <th>RollNo</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Active</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Edit/Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of usersList">
+                <td>{{user.rollNo}}</td>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.active}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.age}}</td>
+                <td>
+                    <button type="button" (click)="onEdit(user)">EDIT</button>
+                    <button type="button" (click)="onDelete(user.rollNo)">DELETE</button>
+                </td>
+            </tr>
+            
+        </tbody>
+        
+    </table>
+</section>
+
+
