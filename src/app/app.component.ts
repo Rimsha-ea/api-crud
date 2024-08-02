@@ -8,6 +8,6 @@ import { FormsModule } from "@angular/forms";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
+title: string = 'crud api'
 
 }
