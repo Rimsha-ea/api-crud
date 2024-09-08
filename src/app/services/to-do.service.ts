@@ -20,4 +20,7 @@ export class ToDoService {
   deleteToDo(id: string){
     return this.httpClient.delete(`${this.baseURL}delete_todo/${id}`)
   }
+  updateToDo(id: string, todo: {title: string; details: string}){
+    return this.httpClient.put(`${this.baseURL}update_todo/${id}` , todo )
+  }
 }

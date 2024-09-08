@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ToDoService } from '../services/to-do.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -8,17 +9,26 @@ import { ToDoService } from '../services/to-do.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  todos: Array<any> = [];
-constructor(private readonly toDoService:ToDoService){
-
+  users: Array<any> = [];
+user: any;
+constructor(private readonly userService:UserService , httpClient:HttpClient ){
+  httpClient.get('https://jsonplaceholder.typicode.com/posts').subscribe({
+    next: (x: any) => (
+      console.log(x)
+    )
+  })
+ 
 }
   ngOnInit(): void {
-    this.toDoService.getToDos().subscribe({
+    this.userService.usersList.subscribe({
       next: (x: any) =>{
         console.log(x)
-        this.todos = x;
+        this.users = x;
       }
     })
   }
+  
+
+
 
 }

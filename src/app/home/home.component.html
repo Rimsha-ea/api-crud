@@ -1,5 +1,29 @@
 <p>home works!</p>
 
-<div *ngFor="let todo of todos">
-    <div> title: {{todo.title}}   details: {{todo.details}}</div>
+<div *ngFor="let user of users">
+    <div> firstName: {{user.firstName}}   lastName: {{user.lastName}}  active: {{user.active}}  email: {{user.email}}  age: {{user.age}}   </div>
 </div>
+
+<section>
+        <table class="border border-success border-1 col-6 ">
+            <thead>
+                    <tr class="  col-6 bg-success p-2  bg-opacity-25">
+                        <th>FirstName</th>
+                        <th>lastName</th>
+                        <th>Active</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                    </tr>
+            </thead>
+            <tbody>
+                    <tr *ngFor="let user of users">
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.active}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.age}}</td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+

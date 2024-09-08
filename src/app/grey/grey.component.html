@@ -1,1 +1,17 @@
-<p>grey works!</p>
+<h1>To-Dos</h1>
+
+<form [formGroup]="toDoForm">
+      <div>
+            <div>
+                    <label>Title:</label>
+                    <input type="text" id="title"  class="form-control"/>
+            </div>
+            <div>
+                    <label>Details:</label>
+                    <input type="text" id="details"  class="form-control"/>
+            </div>
+            <div>
+                    <button type="submit">ADD</button>
+            </div>
+      </div>
+</form>
