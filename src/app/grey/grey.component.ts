@@ -16,7 +16,7 @@ export class GreyComponent implements OnInit {
   constructor(private readonly httpClient:HttpClient , private readonly toDoService:ToDoService ,private readonly fb: FormBuilder ){
   
 
-    this.toDoForm = this.fb.group({
+    this.toDoForm  = this.fb.group({
       title: new FormControl<string|null>(null,[Validators.required]),
       details: new FormControl<string|null>(null,[Validators.required]),
     })
